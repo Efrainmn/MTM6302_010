@@ -6,19 +6,19 @@ function getRandomInteger (minimum, maximum) {
 }
 
 // Povided Arrays
-const nouns = ['dragons', 'toasters']
+const nouns = ['dragons', 'toasters','car','planes','ballons','balls', 'swords', 'guns','lances','chariots']
 
-const verbs = ['walked', 'ran']
+const verbs = ['walked', 'ran', 'fight', 'yell','shout','jump', 'bend', 'blow', 'met','sent']
 
-const adverbs = ['menacingly', 'intentionally']
+const adverbs = ['menacingly', 'intentionally','abnormally','dimly','hourly','neatly','rudely','unbearably','bleakly','partially']
 
-const adjectives = ['wild', 'slippery']
+const adjectives = ['wild', 'slippery','aggressive','agreeable','ambitious','brave','calm','delightful','eager','faithful']
 
 const proNouns = ['they', 'we', 'you', 'he', 'she', 'I', 'it']
 
-const openings = ['Once upon a time', 'I watched']
+const openings = ['Once upon a time', 'I watched','There came a time','In the beginning','From the top','Let us begin','Long ago','In a galaxy far far away','Back in the day','Eons ago']
 
-const closings = ['with extra cheese', 'the end']
+const closings = ['with extra cheese', 'the end','That is it','to the death','fell down','kept going','never surrendered','ended with grace','with alot of nerve','with fire and brimstone']
 
 // Instructions:
 
@@ -79,3 +79,52 @@ const closings = ['with extra cheese', 'the end']
 
 // Submission
 // Submit your GitHub repo URL through the LMS.
+
+/* Pseudo code:
+add the words to arrays
+create a function that generates a random sentence
+Does this function require any parameters: no
+does this function return anuyting: yes a new random sentence
+How do you create a random sentence?
+
+create a function that outputs some texts
+does function require any parameters : yes the text to ouput
+does function return anything : no
+
+execute a loop ten times
+each time it loops will create a new random sentence
+then it will output it
+
+*/
+
+
+
+function createRandomSentence(){
+    const randomSentence = openings[getRandomInteger(0,openings.length - 1)] + ' ' + 
+    //random adjective
+    adjectives[getRandomInteger(0, adjectives.length - 1)] + ' ' +
+    //random noun
+    nouns[getRandomInteger(0, nouns.length - 1)] + ' ' +
+    //random pronoun
+    proNouns[getRandomInteger(0, proNouns.length - 1)] + ' ' +
+    //add random verb,
+    verbs[getRandomInteger(0, verbs.length - 1)] + ', ' +
+    //add random adverb // add comma not a space
+    adverbs[getRandomInteger(0, adverbs.length - 1)] + ' ' +
+    //add random ending // add period
+    closings[getRandomInteger(0, closings.length - 1)] + '.'
+
+    return randomSentence
+
+}
+
+function outputSentence(sentence){
+  console.log(sentence)
+}
+
+
+
+for (let i = 0; i < 10; i++){
+  let randomsentence = createRandomSentence()
+  outputSentence(createRandomSentence())
+}
